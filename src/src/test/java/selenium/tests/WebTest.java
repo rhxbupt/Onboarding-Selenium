@@ -20,13 +20,14 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 
 public class WebTest {
     private static WebDriver driver;
-    private final String     ROOT = "http://localhost:8080/";
+    private final String     ROOT = "http://192.168.33.100:8080/";
 
     @BeforeClass
     public static void setUp () throws Exception {
         // driver = new HtmlUnitDriver();
         ChromeDriverManager.getInstance().setup();
         final ChromeOptions options = new ChromeOptions();
+        options.addArgunments("no-sandbox");
         options.addArguments( "headless" );
         options.addArguments( "window-size=1200x600" );
         options.addArguments( "blink-settings=imagesEnabled=false" );
